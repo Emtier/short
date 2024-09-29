@@ -200,6 +200,61 @@
           transform: rotate(360deg);
         }
       }
+      @media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #91a7ff;
+    --color-primary-dark: #748ffc;
+    --color-primary-alpha: #91a7ff50;
+
+    --body-color: #f1f3f5;
+    --body-bg: #212529;
+
+    --border-color: #495057;
+  }
+
+  body {
+    color: var(--body-color);
+    background: var(--body-bg);
+  }
+
+  details {
+    background: #343a40;
+  }
+
+  details[open] {
+    background: #495057;
+  }
+
+  footer {
+    border-top-color: var(--border-color);
+  }
+
+  button {
+    background: var(--color-primary);
+  }
+
+  button:hover {
+    background: var(--color-primary-dark);
+  }
+
+  input {
+    background: #343a40;
+    color: #f1f3f5;
+  }
+
+  input:focus {
+    box-shadow: 0 0 0 .25rem var(--color-primary-alpha);
+    border-color: var(--color-primary);
+  }
+
+  .success {
+    background: #12b886;
+  }
+
+  .error {
+    background: #fa5252;
+  }
+}
     </style>
   </head>
   <body>

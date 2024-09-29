@@ -210,14 +210,14 @@
       <details>
         <summary>自定义短链接</summary>
         <div>
-          <input placeholder="slug" x-model="slug" />
-          <small>Slug 默认是随机生成的短链接，你可以根据需求进行自定义。</small>
+          <input placeholder="slu" x-model="slug" />
+          <small>默认是随机生成的短链接，你可以根据需求进行自定义。</small>
         </div>
       </details>
       <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
     </main>
     <footer>
-     Copyright©2024·短链接生成·All rights reserved.
+     © 2024·短链生成·All rights reserved.
     </footer>
     <script src="asset/js/alpine.js"></script>
     <script>

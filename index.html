@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="asset/img/favicon.png"  >
+    <link rel="icon" href="https://assets.ilisuo.cn/static/img/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>短链接生成</title>
+    <title>短链生成</title>
     <style>
       :root {
         --color-primary: #5c7cfa;
@@ -203,15 +203,15 @@
     </style>
   </head>
   <body>
-    <header><h1>短链接生成</h1></header>
+    <header><h1>短链生成</h1></header>
     <main x-data="app" x-cloak>
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
-      <input placeholder="输入要缩短的网址..." x-model="url" x-ref="url" />
+      <input placeholder="输入要缩短的网址：" x-model="url" x-ref="url" />
       <details>
-        <summary>自定义短链接</summary>
+        <summary>自定义短链</summary>
         <div>
           <input placeholder="" x-model="slug" />
-          <small>默认是随机生成的短链接，你可以根据需求进行自定义。</small>
+          <small>默认是随机生成短链，你可以自定义。</small>
         </div>
       </details>
       <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
@@ -219,7 +219,7 @@
     <footer>
      © 2024·短链生成·All rights reserved.
     </footer>
-    <script src="asset/js/alpine.js"></script>
+    <script src="https://assets.ilisuo.cn/static/js/short.js"></script>
     <script>
       const app = {
         url: '',

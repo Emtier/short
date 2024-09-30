@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>404 - Page Not Found</title>
+    <title>404 - 页面未找到</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,13 +29,43 @@
             color: #007bff;
             text-decoration: none;
         }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>404 - Page Not Found</h1>
-    <p>Sorry, the page you are looking for does not exist.</p>
-    <p>Please check if you have entered the correct URL.</p>
+    <div class="language-toggle" onclick="toggleLanguage()">Switch to English</div>
+    <h1 id="title">404 - 页面未找到</h1>
+    <p id="message">抱歉，您要访问的页面不存在。</p>
+    <p id="suggestion">请检查您是否输入了正确的 URL。</p>
+
+    <script>
+        let isChinese = true;
+
+        function toggleLanguage() {
+            if (isChinese) {
+                document.title = '404 - Page Not Found';
+                document.getElementById('title').innerText = '404 - Page Not Found';
+                document.getElementById('message').innerText = 'Sorry, the page you are looking for does not exist.';
+                document.getElementById('suggestion').innerText = 'Please check if you have entered the correct URL.';
+                document.querySelector('.language-toggle').innerText = '切换到中文';
+            } else {
+                document.title = '404 - 页面未找到';
+                document.getElementById('title').innerText = '404 - 页面未找到';
+                document.getElementById('message').innerText = '抱歉，您要访问的页面不存在。';
+                document.getElementById('suggestion').innerText = '请检查您是否输入了正确的 URL。';
+                document.querySelector('.language-toggle').innerText = 'Switch to English';
+            }
+            isChinese = !isChinese;
+        }
+    </script>
 </body>
 
 </html>

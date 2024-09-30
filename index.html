@@ -32,17 +32,6 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      a {
-        color: var(--color-primary);
-        text-decoration: none;
-        transition: color .3s;
-      }
-
-      a:hover {
-        color: var(--color-primary);
-        text-decoration: underline;
-      }
-
       h1 {
         font-size: 5rem;
         font-weight: 300;
@@ -60,8 +49,6 @@
       }
 
       input {
-        -webkit-appearance: none;
-        appearance: none;
         display: block;
         width: 100%;
         padding: .5rem 1rem;
@@ -72,43 +59,6 @@
         line-height: inherit;
         font-size: 1rem;
         transition: border .3s, box-shadow .3s;
-      }
-
-      input:focus {
-        box-shadow: 0 0 0 .25rem var(--color-primary-alpha);
-        border-color: var(--color-primary);
-        outline: 0;
-      }
-
-      details {
-        margin: 1rem 0 2rem;
-        border: 1px solid var(--border-color);
-        border-radius: .25rem;
-        transition: background .3s;
-      }
-
-      details[open] {
-        background: #fff;
-      }
-
-      details summary {
-        padding: .5rem 1rem;
-        font-weight: 500;
-        user-select: none;
-        cursor: pointer;
-        opacity: .8;
-        outline: 0;
-      }
-
-      details div {
-        padding: 1rem;
-        border-top: 1px solid var(--border-color);
-      }
-
-      details small {
-        margin: 0;
-        font-size: .875rem;
-        line-height: 2;
       }
 
       button {
@@ -127,39 +77,11 @@
         font-weight: 500;
         line-height: inherit;
         cursor: pointer;
-        user-select: none;
-        transition: border .3s, background .3s;
+        transition: background .3s;
       }
 
       button:hover {
-        border-color: var(--color-primary-dark);
         background: var(--color-primary-dark);
-      }
-
-      button:focus {
-        box-shadow: 0 0 0 .25rem var(--color-primary-alpha);
-        border-color: var(--color-primary);
-        outline: 0;
-      }
-
-      button:disabled {
-        background: var(--color-primary);
-        border-color: var (--color-primary);
-        opacity: .6;
-        cursor: not-allowed;
-      }
-
-      button.loading::before {
-        content: '';
-        display: inline-block;
-        margin-right: .5rem;
-        border: 2px solid #fff;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        width: .75rem;
-        height: .75rem;
-        animation: rotate .5s linear infinite;
       }
 
       footer {
@@ -169,110 +91,21 @@
         opacity: .5;
       }
 
-      footer i {
-        font-style: normal;
-        color: #ff8787;
-      }
-
-      .success,
-      .error {
-        margin-bottom: 1rem;
-        padding: .5rem 1rem;
-        border-radius: .25rem;
-        color: #fff;
-        text-align: center;
-        opacity: 1;
-        transition: opacity .3s;
-      }
-
-      .success {
-        border: 1px solid #12b886;
-        background: #38d9a9;
-      }
-
-      .error {
-        border: 1px solid #fa5252;
-        background: #ff8787;
-      }
-
-      @keyframes rotate {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --color-primary: #91a7ff;
-          --color-primary-dark: #748ffc;
-          --color-primary-alpha: #91a7ff50;
-
-          --body-color: #f1f3f5;
-          --body-bg: #212529;
-
-          --border-color: #495057;
-        }
-
-        body {
-          color: var(--body-color);
-          background: var(--body-bg);
-        }
-
-        details {
-          background: #343a40;
-        }
-
-        details[open] {
-          background: #495057;
-        }
-
-        footer {
-          border-top-color: var(--border-color);
-        }
-
-        button {
-          background: var(--color-primary);
-        }
-
-        button:hover {
-          background: var(--color-primary-dark);
-        }
-
-        input {
-          background: #343a40;
-          color: #f1f3f5;
-        }
-
-        input:focus {
-          box-shadow: 0 0 0 .25rem var(--color-primary-alpha);
-          border-color: var(--color-primary);
-        }
-
-        .success {
-          background: #12b886;
-        }
-
-        .error {
-          background: #fa5252;
-        }
-      }
-
       /* 右上角按钮样式 */
       #language-switcher-btn {
         position: fixed;
         top: 10px;
         right: 10px;
-        background-color: var(--color-primary);
-        color: white;
+        background: none;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
+        color: var(--color-primary);
         cursor: pointer;
         font-size: 1rem;
+        font-weight: bold;
       }
 
       #language-switcher-btn:hover {
-        background-color: var(--color-primary-dark);
+        color: var(--color-primary-dark);
       }
 
     </style>
@@ -281,7 +114,7 @@
     <header>
       <h1 id="title">短链生成</h1>
       <!-- 语言切换按钮 -->
-      <button id="language-switcher-btn" onclick="switchLanguage()">切换语言</button>
+      <button id="language-switcher-btn" onclick="switchLanguage()">中文/English</button>
     </header>
     <main x-data="app" x-cloak>
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
@@ -358,7 +191,7 @@
           "default-info": { zh: "默认是随机生成短链，你可以自定义。", en: "A random URL will be generated by default, or you can customize it." },
           "generate-button": { zh: "生成", en: "Generate" },
           "footer-text": { zh: "© 2024 · 短链生成", en: "© 2024 · Short URL Generator" },
-          "language-switcher-btn": { zh: "切换语言", en: "Switch Language" }
+          "language-switcher-btn": { zh: "中文/English", en: "中文/English" }
         };
 
         for (const key in elements) {

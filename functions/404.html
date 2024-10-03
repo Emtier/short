@@ -11,20 +11,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #ece9e6, #ffffff);
             color: #333;
+            padding: 30px;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
         }
 
         h1 {
@@ -88,12 +82,10 @@
 
 <body>
     <div class="language-toggle" onclick="toggleLanguage()">Switch to English</div>
-    <div class="container">
-        <h1 id="title">链接不存在</h1>
-        <p id="message">抱歉，您访问的链接无效或已过期。</p>
-        <p id="suggestion">请检查链接的正确性，或返回主页以获取新的短链接。</p>
-        <a href="/">返回首页</a>
-    </div>
+    <h1 id="title">链接不存在</h1>
+    <p id="message">抱歉，您访问的链接无效或已过期。</p>
+    <p id="suggestion">请检查链接的正确性，或返回主页以获取新的短链接。</p>
+    <a href="/">返回首页</a>
 
     <script>
         let isChinese = true;

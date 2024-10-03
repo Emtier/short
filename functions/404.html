@@ -68,6 +68,17 @@
             color: #fff;
         }
 
+        .svg-container {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .svg-container img {
+            width: 100%;
+            height: auto;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -82,6 +93,11 @@
 
 <body>
     <div class="language-toggle" onclick="toggleLanguage()">Switch to English</div>
+
+    <div class="svg-container">
+        <img src="https://assets.ilisuo.cn/static/img/404.svg" alt="404 Not Found">
+    </div>
+
     <h1 id="title">链接不存在</h1>
     <p id="message">抱歉，您访问的链接无效或已过期。</p>
     <p id="suggestion">请检查链接的正确性，或返回主页以获取新的短链接。</p>
